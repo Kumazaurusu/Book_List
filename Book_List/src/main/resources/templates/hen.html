@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form method="post" action="/save2" th:object="${book}" >
+	
+	<input id = "name" type= hidden   name="isbn" th:field ="*{id}" th:value="${id}">
+	<p>	
+	ISBMコード:
+		
+	<input id = "name" type="text"   name="isbn" th:field ="*{isbn}" th:value="${isbn}">
+	<span th:errors="${book.isbn}" th:text="${book.isbn}"></span>
+	</p>
+	<p>
+	書名:
+		
+	
+		<input id = "tai" type="text"   name="title" th:field ="*{title}"th:value="${title}">
+	<span th:errors="${book.title}" th:text="${book.title}"></span>
+	</p>
+ 	<p>	
+	価格:
+		
+	<input id = "name" type="text"   name="price"  th:field="*{price}"th:value="${price}">
+	<span th:errors="${book.price}" th:text="${book.price}" ></span>
+	</p>
+	<p>
+	出版社:
+		
+	
+		<input id = "tai" type="text"   name="publisher" th:field="*{publisher}" th:value="${publisher}">
+		<span th:errors="${book.publisher}" th:text="${book.publisher}"></span>
+	</p>
+	<p>
+	刊行日:
+		
+	<input type="date" th:name="date" th:value="${date}">
+	<span th:errors="${book.date}">[[${book.date}]]</span>
+
+<!--		<input id = "tai" type="text"   name="date" th:field="*{date}"th:value="${#dates.format(book.date,'yyyy/MM/dd')}" >-->
+	</p>
+	<input type="submit" value="保存">
+</body>
+</html>

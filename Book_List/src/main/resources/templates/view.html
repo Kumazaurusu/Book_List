@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:if="${success}">[[${success}]]</div>
+
+	<table border="4">
+		<tr>
+		<th>ISBN</th>
+		<th>書名</th>
+		<th>値段</th>
+		<th>出版社</th>
+		<th>発行日</th>
+		</tr>
+<tr th:each="book : ${list}">
+<td th:text="${book.isbn}"></td>
+<td th:text="${book.title}"></td>
+<td th:text="${book.price}"></td>
+<td th:text="${book.publisher}"></td>
+<td th:text="${book.date}"></td>
+<td><a th:href="'/edit/'+${book.id}">編集</a></td>
+<td><a th:href="'/del/'+${book.id}">削除</a></td>
+</tr>
+	</table>
+	  <a href="/cleate">新規作成</a>
+
+</body>
+</html>

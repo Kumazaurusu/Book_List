@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form method="post" action="/save" th:object="${book}">
+	
+	<p>ISBMコード:
+		
+	<input id = "name" type="text"   name="isbn" th:field ="*{isbn}">
+	<span th:errors="${book.isbn}" th:text="${book.isbn}"></span>
+
+	</p>
+	<p>
+	書名:
+		
+	
+		<input id = "tai" type="text"   name="title" th:field ="*{title}">
+		<span th:errors="${book.title}" th:text="${book.title}"></span>
+	</p>
+ 	<p>	
+	価格:
+		
+	<input id = "name" type="text"   name="price"  th:field="*{price}" >
+	<span th:errors="${book.price}" th:text="${book.price}" ></span>
+	</p>
+	<p>
+	出版社:
+		
+	
+		<input id = "tai" type="text"   name="publisher" th:field="*{publisher}">
+		<span th:errors="${book.publisher}" th:text="${book.publisher}"></span>
+	</p>
+	<p>
+	刊行日:
+		
+	
+		<input id = "tai" type="date"   th:name="date" th:field="*{date}" th:value="${#dates.format(date,'yyyy/MM/dd')}">
+		<span th:errors="${book.date}">[[${book.date}]]</span>
+	</p>
+	<input type="submit" value="保存">
+</body>
+</html>
